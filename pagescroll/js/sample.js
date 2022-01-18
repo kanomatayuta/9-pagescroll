@@ -9,20 +9,18 @@ const duration = 1000;
 // Webページが読み込まれらイベント実行
 window.addEventListener('DOMContentLoaded', function () {
   // スムーススクロールのトリガーを取得
-  const smoothScrollTriggers = document.querySelectorAll('a[href^="#"]');
-  
+  const smoothScrollTriggers = document.querySelectorAll('a[data-scroll]');
   //繰り返し処理：配列のすべての要素に対してコールバック関数を実行
   smoothScrollTriggers.forEach(function (smoothScrollTrigger) {
     // トリガーをクリックした時にイベント実行
     smoothScrollTrigger.addEventListener('click', function (e) {
-      // href属性の値を取得
-      const href = smoothScrollTrigger.getAttribute('href');
+      // data属性の値を取得
+      const dataVal = smoothScrollTrigger.getAttribute('data-scroll');
       // 現在のスクロール位置を取得（クロスブラウザに対応）
       // Firefoxはdocument.documentElementオブジェクト,Safari,Chromeはdocument.bodyオブジェクト
       const currentPostion = document.documentElement.scrollTop || document.body.scrollTop;
       // スクロール先の要素を取得
-      const targetElement = document.getElementById(href.replace('#', ''));
-      
+      const targetElement = document.getElementById(dataVal);
       // スクロール先の要素が存在する場合はスムーススクロールを実行
       if (targetElement) {
         // スクロール先の要素の位置を取得
