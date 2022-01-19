@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // トリガーをクリックした時にイベント実行
     smoothScrollTrigger.addEventListener('click', function (e) {
       // data属性の値を取得
-      const dataVal = smoothScrollTrigger.getAttribute('data-scroll');
+      const dataVal = smoothScrollTrigger.dataset.scroll;
       // 現在のスクロール位置を取得（クロスブラウザに対応）
       // Firefoxはdocument.documentElementオブジェクト,Safari,Chromeはdocument.bodyオブジェクト
       const currentPostion = document.documentElement.scrollTop || document.body.scrollTop;
